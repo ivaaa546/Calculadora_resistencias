@@ -1,6 +1,19 @@
 #include <iostream>
 #include <string>
+ #include <stdio.h>  
+ #include <windows.h>  
 using namespace std;
+
+ void gotoxy(int x,int y){  
+      HANDLE hcon;  
+      hcon = GetStdHandle(STD_OUTPUT_HANDLE);  
+      COORD dwPos;  
+      dwPos.X = x;  
+      dwPos.Y= y;  
+      SetConsoleCursorPosition(hcon,dwPos);  
+ }  
+
+
     int banda1_;
     int banda2_;
     int banda3_;
@@ -17,9 +30,9 @@ void resistencia_4colores() {
     cout << "  0.Negro\n  1.Marron\n  2.Rojo\n  3.Naranja\n  4.Amarillo\n  5.Verde\n  6.Azul\n  7.Violeta\n  8.Gris\n  9.Blanco\n ";
     cin >> banda1_;
 
-    cout << "\nSeleccione la segunda banda: " << endl;
-    cout << "  0.Negro\n  1.Marron\n  2.Rojo\n  3.Naranja\n  4.Amarillo\n  5.Verde\n  6.Azul\n  7.Violeta\n  8.Gris\n  9.Blanco\n ";
-    cin >> banda2_;
+     cout << "\nSeleccione la segunda banda: " << endl;
+     cout << "  0.Negro\n  1.Marron\n  2.Rojo\n  3.Naranja\n  4.Amarillo\n  5.Verde\n  6.Azul\n  7.Violeta\n  8.Gris\n  9.Blanco\n ";
+     cin >> banda2_;
 
     cout << "\nSeleccione el multiplicador " << endl;
     cout << "  0.Negro\n  1.Marron\n  2.Rojo\n  3.Naranja\n  4.Amarillo\n  5.Verde\n  6.Azul\n  7.Violeta\n  8.Gris\n  9.Blanco\n ";
@@ -182,14 +195,15 @@ int main() {
         cin>>opcioens_colores;
     switch (opcioens_colores) {
     case '4':
-        cout << "Calculadora de codigo de colores de resistencias de 4 bandas\n";
+        gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 4 bandas\n";
        resistencia_4colores();
     break;
     case '5':
-        cout << "Calculadora de codigo de colores de resistencias de 5 bandas\n";
+        gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 5 bandas\n";
         resistencia_5colores();
     break;
     case '6':
+    gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 6 bandas\n";
     resistencia_6colores();
     break;    
     
@@ -205,6 +219,7 @@ int main() {
     switch (opcioens_colores)
     {
     case '4':
+    gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 4 bandas\n";
     cout << "Ingresa el valor de la resistencia en ohmios: ";
     cin >> valor_ohms;
     cout << "Seleccione la tolerancia: "<<endl;
@@ -220,6 +235,7 @@ int main() {
     cout<<"4ta Banda: "<<colores_tolerancia[banda_tolerancia_]<<endl;
         break;
     case '5':
+     gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 5 bandas\n";
     cout << "Ingresa el valor de la resistencia en ohmios: ";
     cin >> valor_ohms;
     cout << "Seleccione la tolerancia: "<<endl;
@@ -237,6 +253,7 @@ int main() {
 
         break;
     case '6':
+     gotoxy(20,8);cout << "Calculadora de codigo de colores de resistencias de 6 bandas\n";
     cout << "Ingresa el valor de la resistencia en ohmios: ";
     cin >> valor_ohms;
     cout << "Seleccione la tolerancia: "<<endl;
